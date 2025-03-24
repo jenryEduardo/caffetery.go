@@ -30,6 +30,7 @@ func GetDBPool() *Conn_MySQL {
 		log.Fatalf("Error al abrir la base de datos: %v", err)
 	}
 
+	log.Println("conexion", dsn)
 	// Configuración del pool de conexiones
 	db.SetMaxOpenConns(10)
 
