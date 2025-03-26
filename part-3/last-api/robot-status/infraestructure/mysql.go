@@ -74,3 +74,12 @@ func (r *MySQLRepository) Delete(idEstado int) error {
 	}
 	return nil
 }
+
+func (r *MySQLRepository) Update(idEstado int, RS domain.RobotStatus) error {
+	query := "UPDATE estado_robot SET status=? WHERE idEstado=?"
+	_,err := r.db.Exec(query, RS.Status, idEstado)
+	if err != nil {
+		return err
+	}
+	return err
+}

@@ -5,5 +5,5 @@ type IRobotStatus interface {
 	GetAll() ([]RobotStatus, error)
 	GetById(idEstado int) ([]RobotStatus, error)
 	Delete(idEstado int) error
-	//Update(idEstado int, RS RobotStatus) error En duda si se va a usar, asi q no lo voy a crear
+	Update(idEstado int, RS RobotStatus) error 
 }

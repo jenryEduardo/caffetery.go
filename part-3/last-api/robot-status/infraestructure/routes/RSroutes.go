@@ -13,9 +13,11 @@ func RSroutes(router *gin.Engine) {
 	getAllRS := dependencies.GetAllRS()
 	getByIDRS := dependencies.GetRSByID()
 	deleteRS := dependencies.DeleteRS()
+	updateRS := dependencies.UpdateRS()
 
 	routes.POST("/", saveRS.Run)
 	routes.GET("/", getAllRS.Run)
 	routes.GET(":idEstado", getByIDRS.Run)
 	routes.DELETE("/:idEstado", deleteRS.Run)
+	routes.PUT("/:idEstado", updateRS.Run)
 }

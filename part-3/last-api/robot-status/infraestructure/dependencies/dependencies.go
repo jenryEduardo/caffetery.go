@@ -39,3 +39,7 @@ func DeleteRS() *controllers.DeleteRSCtrl {
 	return controllers.NewDeleteRSCtrl(ucDeleteRS)
 }
 
+func UpdateRS() *controllers.UpdateRSCtrl {
+	ucUpdateRS := application.NewUpdateRS(&mySQL)
+	return controllers.NewUpdateRSCtrl(ucUpdateRS)
+}

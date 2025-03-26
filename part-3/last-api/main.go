@@ -8,6 +8,8 @@ import (
 	routesRS "last-api/robot-status/infraestructure/routes"
 	dependenciesH "last-api/historial-de-entregas/infraestructure/dependencies"
 	routesHistorial "last-api/historial-de-entregas/infraestructure/routes"
+	dependenciesCircuito "last-api/circuito/infraestructure/dependencies"
+	routesCircuito "last-api/circuito/infraestructure/routes"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -33,6 +35,12 @@ func main() {
 	//Historial
 	dependenciesH.Init()
 	routesHistorial.HistorialRoutes(router)
+
+	//Circuito
+	dependenciesCircuito.Init()
+	routesCircuito.CircuitRoutes(router)
+
+	//
 
 	port := ":8082"
 	log.Println("Servidor escuchando en el puerto", port)
