@@ -22,11 +22,10 @@ func UpdateMesa(c *gin.Context) {
 
 	var mesa domain.Mesa
 
-	// Corregido: Usar `&mesa` y manejar error correctamente
-	if err := c.ShouldBindJSON(&mesa); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "No se pudo deserializar el JSON"})
-		return
-	}
+
+	if err:=c.ShouldBindJSON(&mesa);err!=nil{
+		c.JSON(http.StatusNotFound,gin.H{"error":"no se pudo deszerializar el json"})
+
 
 	repo := infraestructure.NewMySQLRepository()
 	useCase := application.NewUpdateMesa(repo)
@@ -39,4 +38,5 @@ func UpdateMesa(c *gin.Context) {
 
 	// Respuesta correcta con 202 Accepted
 	c.JSON(http.StatusAccepted, gin.H{"success": "Se actualizó la mesa correctamente"})
+}
 }

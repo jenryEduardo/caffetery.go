@@ -16,6 +16,7 @@ func CreateMesa(c *gin.Context) {
 	if err := c.ShouldBindJSON(&mesa); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "No se encontraron datos en la solicitud"})
 		return
+
 	}
 
 	repo := infraestructure.NewMySQLRepository()
